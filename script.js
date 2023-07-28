@@ -8,7 +8,7 @@ const moon = document.querySelector(".moon");
 
 console.log(region);
 async function getCountry() {
-  const url = await fetch("https://restcountries.com/v3.1/all");
+  const url = await fetch("data.json");
   const res = await url.json();
   console.log(res);
   res.forEach((element) => {
@@ -22,7 +22,7 @@ function showCountry(data) {
   country.innerHTML = `<div class="country-img">
     <img src="${data.flags.png}" alt=""></div>
 <div class="country-info">
-    <h5 class="countryName">${data.name.common}</h5>
+    <h5 class="countryName">${data.name}</h5>
     <p><strong>population:</strong> ${data.population}</p>
     <p class ='regionName'><strong>Region:</strong> ${data.region}</p>
     <p><strong>Capital:</strong> ${data.capital}</p>
@@ -80,21 +80,19 @@ function showCountryDetail(data) {
           <img src="${data.flags.png}" alt="" />
         </div>
         <div class="rightModal">
-          <h1>${data.name.common}</h1>
+          <h1>${data.name}</h1>
           <div class="modalInfo">
             <div class="innerLeft inner">
-              <p><strong>Native Name:</strong> ${data.name.official}</p>
+              <p><strong>Native Name:</strong> ${data.nativeName}</p>
               <p><strong>Population:</strong> ${data.population}</p>
               <p><strong>Region:</strong> ${data.region}</p>
               <p><strong>Sub-region:</strong> ${data.subregion}</p>
             </div>
             <div class="innerRight inner">
               <p><strong>Capital:</strong> ${data.capital}</p>
-              <p><strong>Top Level Domain:</strong> ${data.tld.map(
-                (elem) => elem
-              )}</p>
-              <p><strong>Currencies:</strong> ${data.currencies}</p>
-              <p><strong>Languages:</strong> ${data.languages}</p>
+              <p><strong>Top Level Domain:</strong> ${data.topLevelDomain}</p>
+              <p><strong>Currencies:</strong> ${data.currencies[0].name}</p>
+              <p><strong>Languages:</strong> ${data.languages[0].name}</p>
             </div>
           </div>
         </div>
