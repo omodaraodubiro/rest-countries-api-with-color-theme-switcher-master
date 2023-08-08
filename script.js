@@ -72,6 +72,8 @@ toggle.addEventListener("click", () => {
 });
 const countryModal = document.querySelector(".countryModal");
 function showCountryDetail(data) {
+  const languages_data = data.languages.map((obj) => obj.name);
+  const languages = languages_data.join(", ");
   countryModal.classList.toggle("show");
   countryModal.innerHTML = `
 <button class="back">Back</button>
@@ -92,8 +94,13 @@ function showCountryDetail(data) {
               <p><strong>Capital:</strong> ${data.capital}</p>
               <p><strong>Top Level Domain:</strong> ${data.topLevelDomain}</p>
               <p><strong>Currencies:</strong> ${data.currencies[0].name}</p>
-              <p><strong>Languages:</strong> ${data.languages[0].name}</p>
+              <p><strong>Languages:</strong> ${data.languages[0].name}
             </div>
+          </div>
+          <div class="inner border">
+            <p><strong>Border Countries:</strong>${data.borders
+              .map((value) => `<div class="downlayer">${value}</div>`)
+              .join(" ")} </p>
           </div>
         </div>
       </div>

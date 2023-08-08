@@ -13,3 +13,5 @@
 
 # Avoid your project being littered with annoying .DS_Store files!
 .DS_Store
+<p><strong>Currencies:</strong> ${data.currencies[0].name}</p>
+              <p><strong>Languages:</strong> ${data.languages[0].name}</p>
